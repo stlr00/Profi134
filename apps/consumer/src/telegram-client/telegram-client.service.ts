@@ -7,7 +7,9 @@ export class TelegramClientService {
   private readonly logger = new Logger(TelegramClientService.name);
   private readonly httpClient: AxiosInstance;
 
-  constructor(@Inject('TELEGRAM_SERVICE_URL') private readonly serviceUrl: string) {
+  constructor(
+    @Inject('TELEGRAM_SERVICE_URL') private readonly serviceUrl: string,
+  ) {
     this.httpClient = axios.create({
       baseURL: serviceUrl,
       timeout: 10000,

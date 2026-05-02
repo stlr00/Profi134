@@ -9,7 +9,9 @@ export class NotificationsService {
 
   constructor(private readonly rabbitMQService: RabbitMQService) {}
 
-  async sendNotification(dto: SendNotificationDto): Promise<{ id: string; status: string }> {
+  async sendNotification(
+    dto: SendNotificationDto,
+  ): Promise<{ id: string; status: string }> {
     const event: NotificationEvent = {
       id: uuidv4(),
       message: dto.message,

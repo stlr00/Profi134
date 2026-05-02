@@ -35,13 +35,17 @@ describe('NotificationsController', () => {
   describe('POST /notifications', () => {
     it('should return published event id and status', async () => {
       const expectedResult = { id: 'some-uuid', status: 'published' };
-      mockNotificationsService.sendNotification.mockResolvedValue(expectedResult);
+      mockNotificationsService.sendNotification.mockResolvedValue(
+        expectedResult,
+      );
 
       const dto: SendNotificationDto = { message: 'Hello' };
       const result = await controller.publish(dto);
 
       expect(result).toEqual(expectedResult);
-      expect(mockNotificationsService.sendNotification).toHaveBeenCalledWith(dto);
+      expect(mockNotificationsService.sendNotification).toHaveBeenCalledWith(
+        dto,
+      );
     });
   });
 

@@ -44,7 +44,8 @@ describe('NotificationsService', () => {
     );
     expect(mockRabbitMQService.publishNotification).toHaveBeenCalledTimes(1);
 
-    const publishedEvent = mockRabbitMQService.publishNotification.mock.calls[0][0];
+    const publishedEvent =
+      mockRabbitMQService.publishNotification.mock.calls[0][0];
     expect(publishedEvent.message).toBe(dto.message);
     expect(publishedEvent.title).toBe(dto.title);
     expect(publishedEvent.metadata).toEqual(dto.metadata);
@@ -59,6 +60,8 @@ describe('NotificationsService', () => {
 
     const dto: SendNotificationDto = { message: 'Test' };
 
-    await expect(service.sendNotification(dto)).rejects.toThrow('Connection refused');
+    await expect(service.sendNotification(dto)).rejects.toThrow(
+      'Connection refused',
+    );
   });
 });

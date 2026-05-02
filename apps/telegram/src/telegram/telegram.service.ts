@@ -39,9 +39,7 @@ export class TelegramService {
     }
 
     parts.push('');
-    parts.push(
-      `<code>Event ID: ${dto.id}</code>`,
-    );
+    parts.push(`<code>Event ID: ${dto.id}</code>`);
 
     return parts.join('\n');
   }

@@ -1,5 +1,11 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsString, IsNotEmpty, IsOptional, IsObject, IsUUID } from 'class-validator';
+import {
+  IsString,
+  IsNotEmpty,
+  IsOptional,
+  IsObject,
+  IsUUID,
+} from 'class-validator';
 
 export class NotifyDto {
   @ApiProperty({ description: 'Event unique identifier', format: 'uuid' })

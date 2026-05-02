@@ -15,7 +15,9 @@ export class MessageProcessorService {
 
     try {
       await this.telegramClient.sendNotification(event);
-      this.logger.log(`Successfully forwarded event ${event.id} to Telegram service`);
+      this.logger.log(
+        `Successfully forwarded event ${event.id} to Telegram service`,
+      );
     } catch (error) {
       this.logger.error(
         `Failed to forward event ${event.id} to Telegram service`,

@@ -5,7 +5,8 @@ export default registerAs('consumer', () => ({
   rabbitmq: {
     url: process.env.RABBITMQ_URL || 'amqp://guest:guest@localhost:5672',
     prefetchCount: parseInt(process.env.RABBITMQ_PREFETCH, 10) || 10,
-    reconnectTimeInSeconds: parseInt(process.env.RABBITMQ_RECONNECT_TIME, 10) || 5,
+    reconnectTimeInSeconds:
+      parseInt(process.env.RABBITMQ_RECONNECT_TIME, 10) || 5,
   },
   retries: {
     maxAttempts: parseInt(process.env.MAX_RETRY_ATTEMPTS, 10) || 3,

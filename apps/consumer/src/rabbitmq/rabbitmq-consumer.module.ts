@@ -11,11 +11,15 @@ import { MessageProcessorModule } from '../message-processor/message-processor.m
       provide: 'CONSUMER_CONFIG',
       useFactory: (configService: ConfigService) => ({
         url: configService.get<string>('consumer.rabbitmq.url'),
-        prefetchCount: configService.get<number>('consumer.rabbitmq.prefetchCount'),
+        prefetchCount: configService.get<number>(
+          'consumer.rabbitmq.prefetchCount',
+        ),
         reconnectTimeInSeconds: configService.get<number>(
           'consumer.rabbitmq.reconnectTimeInSeconds',
         ),
-        maxRetryAttempts: configService.get<number>('consumer.retries.maxAttempts'),
+        maxRetryAttempts: configService.get<number>(
+          'consumer.retries.maxAttempts',
+        ),
         retryDelayMs: configService.get<number>('consumer.retries.delayMs'),
       }),
       inject: [ConfigService],
